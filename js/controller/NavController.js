@@ -28,7 +28,7 @@
                         angular.forEach(res.data, function (value, key) {
                             localStorageService.set(value.date, value);
                         });
-                        $scope.contCtrl.changeTab($scope.contCtrl.tab);
+                        $scope.contentCtrl.changeTab($scope.contentCtrl.tab);
                     });
                 };
             },

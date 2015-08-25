@@ -24,7 +24,7 @@
                                 localStorageService.set(value.date, value);
                             });
                             localStorageService.set(COOKIE.userID, $rootScope.loginUser);
-                           $scope.contCtrl.changeTab($scope.contCtrl.tab);
+                           $scope.contentCtrl.changeTab($scope.contentCtrl.tab);
                         });
                     }, function () {
                     });

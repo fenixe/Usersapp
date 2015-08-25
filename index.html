@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru"  ng-app="usersApp">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,12 +28,14 @@
     <script src="http://code.highcharts.com/highcharts.js"></script>
 
     <!-- connect app files -->
-    <!--<script src="app.js"></script>-->
-    <!--<script src="js/controller/AuthService.js"></script>-->
-    <!--<script src="js/controller/LoginController.js"></script>-->
-    <!--<script src="js/controller/AppController.js"></script>-->
-    <!--<script src="js/controller/ContentController.js"></script>-->
-    <!--<script src="js/controller/NavController.js"></script>-->
+    <script src="app.js"></script>
+    <script src="js/controller/AuthService.js"></script>
+    <script src="js/controller/LoginController.js"></script>
+    <script src="js/controller/AppController.js"></script>
+    <script src="js/controller/HomePageController.js"></script>
+    <script src="js/controller/SitesListController.js"></script>
+    <script src="js/controller/UsersTableController.js"></script>
+    <script src="js/controller/NavController.js"></script>
 
 
     <script>
@@ -42,10 +44,9 @@
                 title: {
                     text: 'User visits'
                 },
-                chart: {
-                    type: 'spline'
+                credits: {
+                    enabled: false
                 },
-
                 tooltip: {
                     backgroundColor: null,
                     borderWidth: 0,
@@ -55,19 +56,50 @@
                         padding: 0
                     }
                 },
-
                 xAxis: {
                     categories: ['1 Jan', '2 Jan', '3 Jan', '4 Jan', '5 Jan']
                 },
-
+                labels: {
+                    items: [{
+                        html: 'Online VS Offline',
+                        style: {
+                            left: '55px',
+                            top: '18px',
+                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                        }
+                    }]
+                },
                 series: [{
+                    type: 'spline',
                     name: "Pages per visits",
-                    data: [2.9, 30, 10.4, 32.2, 0]
+                    data: [2.9, 30, 10.4, 32.2, 0],
+                    marker: {
+                        lineWidth: 2,
+                        lineColor: Highcharts.getOptions().colors[3],
+                        fillColor: 'white'
+                    }
+                },{
+                    type: 'pie',
+                    name: 'Online VS Offline',
+                    data: [{
+                        name: 'Online',
+                        y: 13,
+                        color: Highcharts.getOptions().colors[0] // Online's color
+                    }, {
+                        name: 'Offline',
+                        y: 23,
+                        color: Highcharts.getOptions().colors[1] // Offline's color
+                    }],
+                    center: [80, 80],
+                    size: 100,
+                    showInLegend: false,
+                    dataLabels: {
+                        enabled: false
+                    }
                 }]
             });
         });
     </script>
-
 
 </head>
 
@@ -75,205 +107,14 @@
 <body>
 
 <!-- Header -->
-<!--<header class="modal-body ">-->
-<!--<h1 class="text-center">Find out your horoscope</h1>-->
-
-<!--<div ng-if="isAuthorized()" class="text-right">Welcome, {{ loginUser.email + ' (' + (loginUser.zodiac | capitalize ) + ')' }}-->
-<!--<button ng-click="logout()" id="btn_logout" name="btn_logout" class="btn btn-primary btn-xs">LogOut</button>-->
-<!--</div>-->
-<!--</header>-->
+<!--<header></header>-->
 
 
-<!--User Content-->
-<main class="container-fluid">
-    <div class="row">
+<!--Main Content-->
+<!--<main class="container-fluid" ng-view>
+</main>-->
 
-        <!--Sidebar content-->
-        <div class="col-md-1 contact-sidebar">
-            <div class="contact-block">
-                <div class="user-icon"><span></span></div>
-                <div>CONTACT</div>
-            </div>
-        </div>
-
-        <!--Main content-->
-        <div class="col-md-11 contact-main">
-            <div class="col-md-5 contact-form">
-                <form class="form-horizontal">
-
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Civility</label>
-                        <div class="col-md-3">
-                                <select class="form-control">
-                                    <option>Select...</option>
-                                    <option>Mr</option>
-                                    <option>Mrs</option>
-                                    <option>Miss</option>
-                                    <option>Ms</option>
-                                    <option>Other</option>
-                                </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputFirstname" class="col-sm-2 control-label">Firstname</label>
-                        <div class="col-md-7">
-                            <input type="text" class="form-control" id="inputFirstname">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputLastName" class="col-sm-2 control-label">Last Name</label>
-                        <div class="col-md-7">
-                            <input type="text" class="form-control" id="inputLastName">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-                        <div class="col-md-7">
-                            <input type="text" class="form-control" id="inputEmail">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputHomePhone" class="col-sm-2 control-label">Home Phone</label>
-                        <div class="col-md-7">
-                            <input type="text" class="form-control" id="inputHomePhone">
-                            <span class="glyphicon glyphicon-earphone"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputMobilePhone" class="col-sm-2 control-label">Mobile Phone</label>
-                        <div class="col-md-7">
-                            <input type="text" class="form-control" id="inputMobilePhone">
-                            <span class="glyphicon glyphicon-earphone"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-2"></label>
-                        <div class="col-md-7">
-                            <input type="text" class="form-control" id="inputAddress1" placeholder="Address 1">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress2" class="col-sm-2"></label>
-                        <div class="col-md-7">
-                            <input type="text" class="form-control" id="inputAddress2" placeholder="Address 2">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label custom-label">Address</label>
-                        <div class="col-md-3">
-                            <input type="text" class="form-control" id="inputPostCode" placeholder="Post Code">
-                        </div>
-                        <div class="col-md-3">
-                            <input type="text" class="form-control" id="inputCity" placeholder="City">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label  class="col-sm-2"></label>
-                        <div class="col-md-7">
-                            <input type="text" class="form-control" id="inputCountry" placeholder="Country">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label  class="col-sm-2"></label>
-                        <div class="col-md-7">
-                            <button type="submit" class="btn btn-success btn-block">SAVE CHANGES</button>
-                        </div>
-                    </div>
-
-                </form>
-            </div>
-
-            <div id="visitsChart" class="col-md-7 visits-chart">
-
-                asdfDAFJKDSFKdsfjdsH
-
-            </div>
-
-        </div>
-    </div>
-</main>
-
-
-<!--Sites Content-->
-<!--<main class="container-fluid">-->
-<!--<div class="row">-->
-
-<!--&lt;!&ndash;Sidebar content&ndash;&gt;-->
-<!--<div class="col-md-2 content-sidebar">-->
-<!--<div class="list">-->
-<!--Sites-->
-<!--<ul class="list-unstyled">-->
-<!--<li>-->
-<!--<div class="checkbox">-->
-<!--<label>-->
-<!--<input type="checkbox"> Shop Online-->
-<!--</label>-->
-<!--</div>-->
-<!--</li>-->
-<!--<li>-->
-<!--<div class="checkbox">-->
-<!--<label>-->
-<!--<input type="checkbox"> Travel-->
-<!--</label>-->
-<!--</div>-->
-<!--</li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--&lt;!&ndash;Main content&ndash;&gt;-->
-<!--<div class="col-md-10 content-main">-->
-<!--<table class="table table-hover borderless">-->
-<!--<thead>-->
-<!--<tr>-->
-<!--<th></th>-->
-<!--<th>Creation Date</th>-->
-<!--<th>Site</th>-->
-<!--<th>Lastname</th>-->
-<!--<th>Firstname</th>-->
-<!--<th>Email</th>-->
-<!--<th>Phone Number</th>-->
-<!--</tr>-->
-<!--</thead>-->
-<!--<tbody>-->
-<!--<tr>-->
-<!--<td>-->
-<!--<button type="button" class="btn user-btn">Take</button>-->
-<!--</td>-->
-<!--<td>09/04 15:50</td>-->
-<!--<td>Shop Online</td>-->
-<!--<td>Avenati</td>-->
-<!--<td>Christian</td>-->
-<!--<td></td>-->
-<!--<td>34543523452435343</td>-->
-<!--</tr>-->
-<!--<tr>-->
-<!--<td>-->
-<!--<button type="button" class="btn user-btn">Take</button>-->
-<!--</td>-->
-<!--<td>09/04 15:50</td>-->
-<!--<td>Travel</td>-->
-<!--<td>White</td>-->
-<!--<td>Andrew</td>-->
-<!--<td>wd@gmail.com</td>-->
-<!--<td></td>-->
-<!--</tr>-->
-<!--</tbody>-->
-<!--</table>-->
-
-<!--</div>-->
-<!--</div>-->
-<!--</main>-->
-
+<main ng-view></main>
 
 <!--<div class="container-fluid ng-cloak" >-->
 <!--<div class="row">-->

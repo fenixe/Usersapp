@@ -17,7 +17,7 @@ html, body {
 }
 
 .content-main,.contact-main {
-    background-color: #e8eaec;
+    background-color: #fbfdff;
     padding: 0;
     font-size: smaller;
 }
@@ -25,6 +25,7 @@ html, body {
 .list {
     color: #ffffff;
     padding-top: 50px;
+    padding-left: 25px;
 }
 
 .borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
@@ -33,7 +34,10 @@ html, body {
 
 .content-main table td{
     padding-top: 20px !important;
-    color: rgba(65, 72, 86, 0.46);
+    color: rgb(120, 120, 120);
+}
+.content-main table td button{
+    background-color: rgb(139, 139, 139);
 }
 
 .user-btn {
@@ -112,4 +116,32 @@ html, body {
     border-radius: 3px;
     box-shadow: 1px 1px 2px #888;
     padding: 8px;
+}
+
+.solo-table-sort-asc > .solo-column-arrow
+{
+    position: relative;
+    top: 10px;
+    margin-left: 5px;
+    border-color: black transparent;
+    border-style: solid;
+    border-width: 5px 5px 0px 5px;
+    height: 0px;
+    width: 0px;
+}
+.solo-table-sort-desc > .solo-column-arrow
+{
+    position: relative;
+    top: -10px;
+    margin-left: 5px;
+    border-color: black transparent;
+    border-style: solid;
+    border-width: 0px 5px 5px 5px;
+    height: 0px;
+    width: 0px;
+}
+
+.solo-table-column-cursor
+{
+    cursor: pointer;
 }

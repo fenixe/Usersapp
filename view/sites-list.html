@@ -1,0 +1,14 @@
+<div class="col-sm-2 col-md-2 content-sidebar">
+    <div class="list">
+        Sites
+        <ul class="list-unstyled">
+            <li ng-repeat="user in users">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-click="setFilterSite(user.site);"> {{user.site}}
+                    </label>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

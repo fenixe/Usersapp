@@ -1,0 +1,44 @@
+[
+  {
+    "_id": 1,
+    "civilityFlag": 1,
+    "lastname": "Avenati",
+    "firstname": "Christian",
+    "site": "Shop Online",
+    "creationDate": "09/04 15:50",
+    "address": {
+      "title": "Home",
+      "line1": "av. Secrete 1",
+      "line2": "av. Secrete 2",
+      "postcode": 30225,
+      "city": "Kiev",
+      "country": "Ukraine"
+    },
+    "phoneNumbers": {
+      "title": "Home",
+      "phoneNumber": "30545656554656"
+    },
+    "email": ""
+  },
+  {
+    "_id": 1,
+    "civilityFlag": 1,
+    "lastname": "White",
+    "firstname": "Andrew",
+    "site": "Travel",
+    "creationDate": "09/04 15:51",
+    "address": {
+      "title": "Home",
+      "line1": "av. Street 1",
+      "line2": "av. Street 2",
+      "postcode": 56525,
+      "city": "Lvov",
+      "country": "Ukraine"
+    },
+    "phoneNumbers": {
+      "title": "Business",
+      "phoneNumber": "5646548"
+    },
+    "email": "wd@gmail.com"
+  }
+]

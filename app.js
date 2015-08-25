@@ -1,7 +1,39 @@
 (function () {
-    var app = angular.module('UsersApp', ['ngRoute', 'ngCookies', 'cgBusy', 'LocalStorageModule', 'AppController', 'AuthService', 'LoginController', 'ContentController','NavController']);
+    var app = angular.module('usersApp',
+        [
+            'ngRoute',
+            'ngCookies',
+            'cgBusy',
+            'LocalStorageModule',
+            'AppController',
+            'AuthService',
+            'LoginController',
+            'HomePageController',
+            'UsersTableController',
+            'SitesListController',
+            'NavController'
+        ]);
 
-    app.constant('COOKIE', {
+
+    app.config(['$routeProvider',
+        function($routeProvider) {
+            $routeProvider.
+                when('/api/contacts', {
+                    templateUrl: './view/home-page.html'}).
+                when('/api/contacts/:id', {
+                    templateUrl: 'view/phone-detail.html',
+                    controller: 'PhoneDetailCtrl'
+                }).
+                when('/api/contacts/:id/visits', {
+                    templateUrl: 'view/phone-detail.html',
+                    controller: 'PhoneDetailCtrl'
+                }).
+                otherwise({
+                    redirectTo: '/api/contacts'
+                });
+        }]);
+
+   /* app.constant('COOKIE', {
         userID: 'userID'
     });
 
@@ -55,7 +87,7 @@
                 });
             }
         };
-    });
+    });*/
 })();
 
 
