@@ -1,60 +1,81 @@
-<div class="col-sm-10 col-md-10 content-main" >
-    <div class="alert alert-info">
-        <p>Сортировка по: {{ sortColumn }}</p>
-        <p>Обратная сортировка: {{ sortReverse }}</p>
-        <p>Поиск: {{ searchFish }}</p>
+<div>
+    <div class="col-sm-2 col-md-2 content-sidebar">
+        <div class="list">
+            Sites
+            <ul class="list-unstyled">
+                <li ng-repeat="user in users">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" ng-click="setFilterSite(user.site);"> {{user.site}}
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
-    <table class="table table-hover borderless">
-        <thead>
-        <tr>
-            <th></th>
-            <th >
-                <a href="#" ng-click="sortBy('creationDate');">
-                    Creation Date
-                    <span ng-show="sortColumn == 'creationDate' && !sortReverse" class="fa fa-caret-down"></span>
-                    <span ng-show="sortColumn == 'creationDate' && sortReverse" class="fa fa-caret-up"></span>
-                </a>
-            </th>
-            <th><a href="#"  ng-click="sortBy('site');">
-                Site
-                <span ng-show="sortColumn == 'site' && !sortReverse" class="fa fa-caret-down"></span>
-                <span ng-show="sortColumn == 'site' && sortReverse" class="fa fa-caret-up"></span>
-            </a></th>
-            <th><a href="#"  ng-click="sortBy('lastname')">
-                Last Name
-                <span ng-show="sortColumn == 'lastname' && !sortReverse" class="fa fa-caret-down"></span>
-                <span ng-show="sortColumn == 'lastname' && sortReverse" class="fa fa-caret-up"></span>
-            </a></th>
-            <th><a href="#" ng-click="sortBy('firstname')">
-                First Name
-                <span ng-show="sortColumn == 'firstname' && !sortReverse" class="fa fa-caret-down"></span>
-                <span ng-show="sortColumn == 'firstname' && sortReverse" class="fa fa-caret-up"></span>
-            </a></th>
-            <th><a href="#" ng-click="sortBy('email')">
-                Email
-                <span ng-show="sortColumn == 'email' && !sortReverse" class="fa fa-caret-down"></span>
-                <span ng-show="sortColumn == 'email' && sortReverse" class="fa fa-caret-up"></span>
-            </a></th>
-            <th><a href="#" ng-click="sortBy('phoneNumbers.phoneNumber')">
-                Phone Number
-                <span ng-show="sortColumn == 'phoneNumbers.phoneNumber' && !sortReverse" class="fa fa-caret-down"></span>
-                <span ng-show="sortColumn == 'phoneNumbers.phoneNumber' && sortReverse" class="fa fa-caret-up"></span>
-            </a></th>
-        </tr>
-        </thead>
-        <tbody>
 
-        <tr ng-repeat="user in users | orderBy:sortColumn:sortReverse | filter:searchSite">
-            <td>
-                <button type="button" class="btn user-btn">Take</button>
-            </td>
-            <td>{{ user.creationDate }}</td>
-            <td>{{ user.site }}</td>
-            <td>{{ user.lastname }}</td>
-            <td>{{ user.firstname }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.phoneNumbers.phoneNumber }}</td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="col-sm-10 col-md-10 content-main">
+        <div class="alert alert-info">
+            <p>Сортировка по: {{ sortColumn }}</p>
+
+            <p>Обратная сортировка: {{ sortReverse }}</p>
+
+            <p>Поиск: {{ searchFish }}</p>
+        </div>
+        <table class="table table-hover borderless">
+            <thead>
+            <tr>
+                <th></th>
+                <th>
+                    <a href="#" ng-click="sortBy('creationDate');">
+                        Creation Date
+                        <span ng-show="sortColumn == 'creationDate' && !sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="sortColumn == 'creationDate' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                </th>
+                <th><a href="#" ng-click="sortBy('site');">
+                    Site
+                    <span ng-show="sortColumn == 'site' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortColumn == 'site' && sortReverse" class="fa fa-caret-up"></span>
+                </a></th>
+                <th><a href="#" ng-click="sortBy('lastname')">
+                    Last Name
+                    <span ng-show="sortColumn == 'lastname' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortColumn == 'lastname' && sortReverse" class="fa fa-caret-up"></span>
+                </a></th>
+                <th><a href="#" ng-click="sortBy('firstname')">
+                    First Name
+                    <span ng-show="sortColumn == 'firstname' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortColumn == 'firstname' && sortReverse" class="fa fa-caret-up"></span>
+                </a></th>
+                <th><a href="#" ng-click="sortBy('email')">
+                    Email
+                    <span ng-show="sortColumn == 'email' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortColumn == 'email' && sortReverse" class="fa fa-caret-up"></span>
+                </a></th>
+                <th><a href="#" ng-click="sortBy('phoneNumbers.phoneNumber')">
+                    Phone Number
+                    <span ng-show="sortColumn == 'phoneNumbers.phoneNumber' && !sortReverse"
+                          class="fa fa-caret-down"></span>
+                    <span ng-show="sortColumn == 'phoneNumbers.phoneNumber' && sortReverse"
+                          class="fa fa-caret-up"></span>
+                </a></th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr ng-repeat="user in users | orderBy:sortColumn:sortReverse | filter:searchSite">
+                <td>
+                    <button type="button" class="btn user-btn">Take</button>
+                </td>
+                <td>{{ user.creationDate }}</td>
+                <td>{{ user.site }}</td>
+                <td>{{ user.lastname }}</td>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phoneNumbers.phoneNumber }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

@@ -21,6 +21,11 @@
                 //console.log($rootScope);
                 //console.log($scope);
 
+                $scope.setFilterSite = function(site) {
+                    $scope.searchSite = site;
+                };
+
+
                 $scope.sortBy = function(field) {
                     if ($scope.sortColumn == field) {
                         $rootScope.sortReverse = !$rootScope.sortReverse;

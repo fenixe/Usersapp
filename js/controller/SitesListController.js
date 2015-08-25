@@ -12,10 +12,6 @@
                     $scope.users = d;
                 });
 
-                $scope.setFilterSite = function(site) {
-                    $rootScope.searchSite = site;
-                };
-
 
 
 
