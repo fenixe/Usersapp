@@ -19,10 +19,9 @@
         function($routeProvider) {
             $routeProvider.
                 when('/api/contacts', {
-                    templateUrl: './view/home-page.html'}).
+                    templateUrl: 'view/home-page.html'}).
                 when('/api/contacts/:id', {
-                    templateUrl: 'view/phone-detail.html',
-                    controller: 'PhoneDetailCtrl'
+                    templateUrl: 'view/users-content.html'
                 }).
                 when('/api/contacts/:id/visits', {
                     templateUrl: 'view/phone-detail.html',

@@ -7,7 +7,7 @@ html, body {
 .content-sidebar,
 .content-main,
 .contact-sidebar,
-.contact-main{
+.contact-main {
     height: 100vh;
 }
 
@@ -16,7 +16,7 @@ html, body {
     font-size: smaller;
 }
 
-.content-main,.contact-main {
+.content-main, .contact-main {
     background-color: #fbfdff;
     padding: 0;
     font-size: smaller;
@@ -32,12 +32,15 @@ html, body {
     border: none;
 }
 
-.content-main table td{
+.content-main table td {
     padding-top: 20px !important;
     color: rgb(120, 120, 120);
 }
-.content-main table td button{
-    background-color: rgb(139, 139, 139);
+
+.content-main th a {
+    color: rgb(92, 92, 92);
+    text-decoration: none;
+    cursor: default;
 }
 
 .user-btn {
@@ -47,9 +50,21 @@ html, body {
     margin-left: 10px;
     color: #ffffff;
     font-size: smaller;
+    background-color: rgb(139, 139, 139);
+    border-color: rgb(127, 127, 127);
 }
 
-.contact-sidebar{
+.user-btn:hover {
+    background-color: rgb(92, 92, 92) !important;
+    border-color: rgb(92, 92, 92) !important;
+}
+
+.user-btn:active {
+    background-color: rgb(145, 145, 145) !important;
+    border-color: rgb(145, 145, 145) !important;
+}
+
+.contact-sidebar {
     max-width: 150px;
     padding: inherit;
 }
@@ -69,9 +84,6 @@ html, body {
     display: block;
     margin: -40px 0;
     content: '';
-    /* position: absolute; */
-    /* left: 0; */
-    /* top: 32px; */
     border: 6px solid transparent;
     border-right: 12px solid #e8eaec;
 }
@@ -82,17 +94,17 @@ html, body {
     background-size: 30px;
 }
 
-.contact-form, .visits-chart{
+.contact-form, .visits-chart {
     font-size: small;
     padding-top: 40px;
 }
 
-.contact-form .control-label{
+.contact-form .control-label {
     padding-left: 25px;
     text-align: left;
 }
 
-.custom-label{
+.custom-label {
     margin-top: -24px;
 }
 
@@ -106,42 +118,14 @@ html, body {
     color: rgba(131, 131, 131, 0.63);
 }
 
-#visitsChart{
+#visitsChart {
     height: 400px;
 }
 
-.highcharts-tooltip>span {
-    background: rgba(255,255,255,0.85);
+.highcharts-tooltip > span {
+    background: rgba(255, 255, 255, 0.85);
     border: 1px solid silver;
     border-radius: 3px;
     box-shadow: 1px 1px 2px #888;
     padding: 8px;
-}
-
-.solo-table-sort-asc > .solo-column-arrow
-{
-    position: relative;
-    top: 10px;
-    margin-left: 5px;
-    border-color: black transparent;
-    border-style: solid;
-    border-width: 5px 5px 0px 5px;
-    height: 0px;
-    width: 0px;
-}
-.solo-table-sort-desc > .solo-column-arrow
-{
-    position: relative;
-    top: -10px;
-    margin-left: 5px;
-    border-color: black transparent;
-    border-style: solid;
-    border-width: 0px 5px 5px 5px;
-    height: 0px;
-    width: 0px;
-}
-
-.solo-table-column-cursor
-{
-    cursor: pointer;
 }
