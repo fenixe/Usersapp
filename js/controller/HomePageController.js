@@ -5,10 +5,10 @@
     app.factory('getUsers', function($http) {
         var promise;
         var getUsers = {
-            async: function () {
+            async: function (id) {
                 if (!promise) {
                     // $http returns a promise, which has a then function, which also returns a promise
-                    promise = $http.get('content/users.json').then(function (response) {
+                    promise = $http.get('api/contacts/users.json').then(function (response) {
                         // The return value gets picked up by the then in the controller.
                         return response.data;
                     });

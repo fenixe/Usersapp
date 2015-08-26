@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru"  ng-app="usersApp">
+<html lang="ru" ng-app="usersApp">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,24 +7,24 @@
 
     <!-- linc CSS -->
     <link rel="stylesheet" media="screen" href="css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="css/alertify.css">
+
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link rel="stylesheet" media="screen" href="css/style.css">
     <link rel="stylesheet" media="screen" href="css/angular-csp.css">
-    <link rel="stylesheet" media="screen" href="css/angular-busy.min.css">
-
-    <!-- connect AngularJS library -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="js/angular/angular.min.js"></script>
-    <script src="js/angular/angular-cookies.min.js"></script>
-    <script src="js/angular/angular-route.min.js"></script>
-    <script src="js/angular/angular-local-storage.min.js"></script>
-    <script src="js/angular/angular-resource.min.js"></script>
-    <script src="js/angular/angular-loader.min.js"></script>
-    <script src="js/angular/angular-busy.min.js"></script>
+    <link rel="stylesheet" media="screen" href="css/style.css">
 
 
+    <!-- connect js library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="js/angular/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="js/angular/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/angular/angular-local-storage.min.js"></script>
+    <script type="text/javascript" src="js/angular/angular-resource.min.js"></script>
+    <script type="text/javascript" src="js/angular/angular-loader.min.js"></script>
+    <script type="text/javascript" src="js/angular/alertify.js"></script>
+    <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
 
     <!-- connect app files -->
     <script src="app.js"></script>
@@ -32,94 +32,23 @@
     <script src="js/controller/LoginController.js"></script>
     <script src="js/controller/AppController.js"></script>
     <script src="js/controller/HomePageController.js"></script>
-    <script src="js/controller/SitesListController.js"></script>
+    <script src="js/controller/UserContentController.js"></script>
+    <script src="js/controller/ContactController.js"></script>
     <script src="js/controller/UsersTableController.js"></script>
     <script src="js/controller/NavController.js"></script>
 
-
-    <script>
-        $(function () {
-            $('#visitsChart').highcharts({
-                title: {
-                    text: 'User visits'
-                },
-                credits: {
-                    enabled: false
-                },
-                tooltip: {
-                    backgroundColor: null,
-                    borderWidth: 0,
-                    shadow: false,
-                    useHTML: true,
-                    style: {
-                        padding: 0
-                    }
-                },
-                xAxis: {
-                    categories: ['1 Jan', '2 Jan', '3 Jan', '4 Jan', '5 Jan']
-                },
-                labels: {
-                    items: [{
-                        html: 'Online VS Offline',
-                        style: {
-                            left: '55px',
-                            top: '18px',
-                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
-                        }
-                    }]
-                },
-                series: [{
-                    type: 'spline',
-                    name: "Pages per visits",
-                    data: [2.9, 30, 10.4, 32.2, 0],
-                    marker: {
-                        lineWidth: 2,
-                        lineColor: Highcharts.getOptions().colors[3],
-                        fillColor: 'white'
-                    }
-                },{
-                    type: 'pie',
-                    name: 'Online VS Offline',
-                    data: [{
-                        name: 'Online',
-                        y: 13,
-                        color: Highcharts.getOptions().colors[0] // Online's color
-                    }, {
-                        name: 'Offline',
-                        y: 23,
-                        color: Highcharts.getOptions().colors[1] // Offline's color
-                    }],
-                    center: [80, 80],
-                    size: 100,
-                    showInLegend: false,
-                    dataLabels: {
-                        enabled: false
-                    }
-                }]
-            });
-        });
-    </script>
-
 </head>
 
-<!-- Body-->
-<body>
+    <!-- Body-->
+    <body>
 
-<!-- Header -->
-<!--<header></header>-->
+    <!-- Header -->
+    <!--<header></header>-->
 
+        <!--Main Content-->
+        <main ng-view></main>
 
-<!--Main Content-->
-<main ng-view></main>
-
-<!--<div class="container-fluid ng-cloak" >-->
-<!--<div class="row">-->
-<!--<nav-panel></nav-panel>-->
-<!--<content-panel></content-panel>-->
-
-<!--</div>-->
-<!--</div>-->
-
-<!--<footer></footer>-->
-</body>
+    <!-- Footer -->
+    <!--<footer></footer>-->
+    </body>
 </html>

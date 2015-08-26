@@ -1,54 +1,54 @@
 <div class="col-md-5 contact-form">
 
-    <form class="form-horizontal">
+    <form class="form-horizontal" ng-submit="signUpForm()">
 
         <div class="form-group">
             <label class="col-sm-3 col-md-2 control-label">Civility</label>
             <div class="col-md-3">
-                <select class="form-control">
-                    <option>Select...</option>
-                    <option>Mr</option>
-                    <option>Mrs</option>
-                    <option>Miss</option>
-                    <option>Ms</option>
-                    <option>Other</option>
+                <select class="form-control" ng-model="user.civilityFlag">
+                    <option value="0">Select...</option>
+                    <option value="1">Mr</option>
+                    <option value="2">Mrs</option>
+                    <option value="3">Miss</option>
+                    <option value="4">Ms</option>
+                    <option value="5">Other</option>
                 </select>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="inputFirstname" class="col-sm-2 control-label">Firstname</label>
+            <label name="firstName" class="col-sm-2 control-label">First Name</label>
             <div class="col-md-7">
-                <input type="text" class="form-control" id="inputFirstname">
+                <input type="text" ng-model="user.firstname" ng-minlength=3 ng-maxlength=20 class="form-control" name="firstName" required>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="inputLastName" class="col-sm-2 control-label">Last Name</label>
+            <label name="lastName" class="col-sm-2 control-label">Last Name</label>
             <div class="col-md-7">
-                <input type="text" class="form-control" id="inputLastName">
+                <input type="text" ng-model="user.lastname" ng-minlength=3 ng-maxlength=20 class="form-control"  name="lastName" required>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+            <label name="email" class="col-sm-2 control-label">Email</label>
             <div class="col-md-7">
-                <input type="text" class="form-control" id="inputEmail">
+                <input type="email" ng-model="user.email" class="form-control" name="email" required>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="inputHomePhone" class="col-sm-2 control-label">Home Phone</label>
+            <label name="homePhone" class="col-sm-2 control-label">Home Phone</label>
             <div class="col-md-7">
-                <input type="text" class="form-control" id="inputHomePhone">
+                <input class="form-control icon" ng-model="user.phoneNumbers[0].phoneNumber" ng-init="model = { year: '2013', month:'09'}" ng-change="convertToArray()" name="homePhone" value="{{phoneNumber('Home', user.phoneNumbers[0].phoneNumber)}}">
                 <span class="glyphicon glyphicon-earphone"></span>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="inputMobilePhone" class="col-sm-2 control-label">Mobile Phone</label>
+            <label name="mobilePhone" class="col-sm-2 control-label">Mobile Phone</label>
             <div class="col-md-7">
-                <input type="text" class="form-control" id="inputMobilePhone">
+                <input type="text" ng-model="user.phoneNumbers[1].phoneNumber" class="form-control icon" name="mobilePhone">
                 <span class="glyphicon glyphicon-earphone"></span>
             </div>
         </div>
@@ -56,30 +56,30 @@
         <div class="form-group">
             <label class="col-sm-2"></label>
             <div class="col-md-7">
-                <input type="text" class="form-control" id="inputAddress1" placeholder="Address 1">
+                <input type="text" ng-model="user.address.line1" class="form-control" name="inputAddress1" placeholder="Address 1">
             </div>
         </div>
         <div class="form-group">
-            <label for="inputAddress2" class="col-sm-2"></label>
+            <label name="inputAddress2" class="col-sm-2"></label>
             <div class="col-md-7">
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Address 2">
+                <input type="text" ng-model="user.address.line2" class="form-control" name="inputAddress2" placeholder="Address 2">
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-2 control-label custom-label">Address</label>
             <div class="col-md-3">
-                <input type="text" class="form-control" id="inputPostCode" placeholder="Post Code">
+                <input type="text" ng-model="user.address.postcode" class="form-control" name="postCode" placeholder="Post Code">
             </div>
-            <div class="col-md-3">
-                <input type="text" class="form-control" id="inputCity" placeholder="City">
+            <div class="col-md-4">
+                <input type="text" ng-model="user.address.city" class="form-control" name="city" placeholder="City">
             </div>
         </div>
 
         <div class="form-group">
             <label  class="col-sm-2"></label>
             <div class="col-md-7">
-                <input type="text" class="form-control" id="inputCountry" placeholder="Country">
+                <input type="text" ng-model="user.address.country" class="form-control" name="country" placeholder="Country">
             </div>
         </div>
 

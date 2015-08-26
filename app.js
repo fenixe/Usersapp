@@ -3,14 +3,14 @@
         [
             'ngRoute',
             'ngCookies',
-            'cgBusy',
             'LocalStorageModule',
             'AppController',
             'AuthService',
             'LoginController',
             'HomePageController',
+            'UserContentController',
+            'ContactController',
             'UsersTableController',
-            'SitesListController',
             'NavController'
         ]);
 
@@ -21,9 +21,9 @@
                 when('/api/contacts', {
                     templateUrl: 'view/home-page.html'}).
                 when('/api/contacts/:id', {
-                    templateUrl: 'view/users-content.html'
+                    templateUrl: 'view/user-content.html'
                 }).
-                when('/api/contacts/:id/visits', {
+                when('api/contacts/:id/visits', {
                     templateUrl: 'view/phone-detail.html',
                     controller: 'PhoneDetailCtrl'
                 }).
@@ -31,16 +31,6 @@
                     redirectTo: '/api/contacts'
                 });
         }]);
-
-   /* app.constant('COOKIE', {
-        userID: 'userID'
-    });
-
-    app.constant('HOROSCOPES', {
-        yesterday: 'yesterday',
-        tomorrow: 'tomorrow',
-        today: 'free-daily'
-    });
 
     app.config(function ($httpProvider) {
         $httpProvider.interceptors.push([
@@ -50,6 +40,7 @@
             }
         ]);
     });
+
     app.factory('AuthInterceptor', function ($rootScope, $q) {
         return {
             responseError: function (response) {
@@ -66,6 +57,18 @@
             }
         };
     });
+
+   /* app.constant('COOKIE', {
+        userID: 'userID'
+    });
+
+    app.constant('HOROSCOPES', {
+        yesterday: 'yesterday',
+        tomorrow: 'tomorrow',
+        today: 'free-daily'
+    });
+
+
 
     app.directive('formAutofillFix', function ($timeout) {
         return function (scope, element, attrs) {

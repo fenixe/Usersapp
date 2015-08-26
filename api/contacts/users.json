@@ -5,7 +5,7 @@
     "lastname": "Avenati",
     "firstname": "Christian",
     "site": "Shop Online",
-    "creationDate": "09/04 15:50",
+    "creationDate": "2009-09-04T15:50:55+01:00",
     "address": {
       "title": "Home",
       "line1": "av. Secrete 1",
@@ -14,11 +14,17 @@
       "city": "Kiev",
       "country": "Ukraine"
     },
-    "phoneNumbers": {
-      "title": "Home",
-      "phoneNumber": "30545656554656"
-    },
-    "email": ""
+    "phoneNumbers":[
+      {
+        "title": "Home",
+        "phoneNumber": "30545656554656"
+      },{
+        "title": "Business",
+        "phoneNumber": "34534556"
+      }
+    ]
+    ,
+    "email": "sd34@gmail.com"
   },
   {
     "_id": 2,
@@ -26,13 +32,13 @@
     "lastname": "White",
     "firstname": "Andrew",
     "site": "Travel",
-    "creationDate": "09/04 15:51",
+    "creationDate": "2009-09-04T15:50:55+01:00",
     "address": {
       "title": "Home",
       "line1": "av. Street 1",
       "line2": "av. Street 2",
       "postcode": 56525,
-      "city": "Lvov",
+      "city": "Lviv",
       "country": "Ukraine"
     },
     "phoneNumbers": {

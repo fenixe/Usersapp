@@ -1,6 +1,6 @@
 <div class="row"> <!-- Users Content -->
 
-    <!--Sidebar filter by site content-->
+    <!--Sidebar filter for users table by site content-->
     <div class="col-sm-2 col-md-2 content-sidebar">
         <div class="list">
             Sites
@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <!--User table content-->
+    <!--Users table content-->
     <div class="col-sm-10 col-md-10 content-main">
         <table class="table table-hover borderless">
             <thead>
@@ -51,20 +51,10 @@
                     </a>
                 </th>
                 <th>
-                    <a href="#" ng-click="sortBy('email')">
-                        Email
-                        <span ng-show="sortColumn == 'email' && !sortReverse" class="fa fa-caret-down"></span>
-                        <span ng-show="sortColumn == 'email' && sortReverse" class="fa fa-caret-up"></span>
-                    </a>
+                    <a href="#"> Email </a>
                 </th>
                 <th>
-                    <a href="#" ng-click="sortBy('phoneNumbers.phoneNumber')">
-                        Phone Number
-                    <span ng-show="sortColumn == 'phoneNumbers.phoneNumber' && !sortReverse"
-                          class="fa fa-caret-down"></span>
-                    <span ng-show="sortColumn == 'phoneNumbers.phoneNumber' && sortReverse"
-                          class="fa fa-caret-up"></span>
-                    </a>
+                    <a href="#"> Phone Number </a>
                 </th>
             </tr>
             </thead>
@@ -72,9 +62,9 @@
 
             <tr ng-repeat="user in users | orderBy:sortColumn:sortReverse | filter:filterBySite">
                 <td>
-                    <a class="btn btn-primary user-btn" ng-click="showUser(user._id)" role="button">Take</a>
+                    <a class="btn btn-primary user-btn" ng-click="showUser(user._id)" role="button">View</a>
                 </td>
-                <td>{{ user.creationDate }}</td>
+                <td>{{ user.creationDate | date:'MM/dd/yyyy HH:mm' : timezone }}</td>
                 <td>{{ user.site }}</td>
                 <td>{{ user.lastname }}</td>
                 <td>{{ user.firstname }}</td>
