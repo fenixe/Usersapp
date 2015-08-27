@@ -3,7 +3,7 @@
     <form class="form-horizontal" name="userForm" ng-submit="userForm.$valid && signUpForm()">
 
         <div class="form-group">
-            <label class="col-sm-3 col-md-2 control-label">Civility</label>
+            <label class="col-sm-3 col-md-3 control-label">Civility</label>
 
             <div class="col-md-3">
                 <select class="form-control" ng-model="user.civilityFlag">
@@ -18,9 +18,9 @@
         </div>
 
         <div class="form-group">
-            <label name="firstName" class="col-sm-2 control-label">First Name</label>
+            <label name="firstName" class="col-sm-3 col-md-3 control-label">First Name</label>
 
-            <div class="col-md-7">
+            <div class="col-sm-6 col-md-6">
                 <input type="text" ng-model="user.firstname" ng-minlength=3 ng-maxlength=20 class="form-control"
                        name="firstName" required>
                 <span ng-show="userForm.firstName.$error.maxlength">Your First Name is too long</span>
@@ -28,9 +28,9 @@
         </div>
 
         <div class="form-group">
-            <label name="lastName" class="col-sm-2 control-label">Last Name</label>
+            <label name="lastName" class="col-sm-3 col-md-3 control-label">Last Name</label>
 
-            <div class="col-md-7">
+            <div class="col-sm-6 col-md-6">
                 <input type="text" ng-model="user.lastname" ng-minlength=3 ng-maxlength=20 class="form-control"
                        name="lastName" required>
                 <span ng-show="userForm.lastName.$error.maxlength">Your Last Name is too long</span>
@@ -38,68 +38,68 @@
         </div>
 
         <div class="form-group">
-            <label name="email" class="col-sm-2 control-label">Email</label>
+            <label name="email" class="col-sm-3 col-md-3 control-label">Email</label>
 
-            <div class="col-md-7">
+            <div class="col-sm-6 col-md-6">
                 <input type="email" ng-model="user.email" class="form-control" name="email" required>
                 <span ng-show="userForm.email.$error.email">This is not a valid email.</span>
             </div>
         </div>
 
         <div ng-repeat="phone in user.phoneNumbers | filter: type" class="form-group">
-            <label name="homePhone" class="col-sm-2 control-label">{{phone.title}} Phone</label>
+            <label name="homePhone" class="col-sm-3 col-md-3 control-label">{{phone.title}} Phone</label>
 
-            <div class="col-md-7">
+            <div class="col-sm-6 col-md-6">
                 <input type="text" class="form-control icon" phone-input ng-model="phone.phoneNumber" name="phone">
                 <span class="glyphicon glyphicon-earphone"></span>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2"></label>
+            <label class="col-sm-3 col-md-3"></label>
 
-            <div class="col-md-7">
+            <div class="col-sm-6 col-md-6">
                 <input type="text" ng-model="user.address.line1" class="form-control" name="inputAddress1"
                        placeholder="Address 1">
             </div>
         </div>
         <div class="form-group">
-            <label name="inputAddress2" class="col-sm-2"></label>
+            <label name="inputAddress2" class="col-sm-3 col-md-3"></label>
 
-            <div class="col-md-7">
+            <div class="col-sm-6 col-md-6">
                 <input type="text" ng-model="user.address.line2" class="form-control" name="inputAddress2"
                        placeholder="Address 2">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label custom-label">Address</label>
+            <label class="col-sm-3 col-md-3 control-label custom-label">Address</label>
 
-            <div class="col-md-3">
+            <div class="col-sm-3 col-md-3 post">
                 <input type="text" ng-model="user.address.postcode" class="form-control" ng-maxlength=10 name="postCode"
                        placeholder="Post Code">
                 <span ng-show="userForm.postCode.$error.maxlength">Your Code is too long</span>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-sm-3 col-md-3 city">
                 <input type="text" ng-model="user.address.city" class="form-control" name="city" placeholder="City">
             </div>
 
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2"></label>
+            <label class="col-sm-3 col-md-3"></label>
 
-            <div class="col-md-7">
+            <div class="col-sm-6 col-md-6">
                 <input type="text" ng-model="user.address.country" class="form-control" name="country"
                        placeholder="Country">
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2"></label>
+            <label class="col-sm-3 col-md-3"></label>
 
-            <div class="col-md-7">
+            <div class="col-sm-6 col-md-6">
                 <button type="submit" class="btn btn-success btn-block">SAVE CHANGES</button>
             </div>
         </div>

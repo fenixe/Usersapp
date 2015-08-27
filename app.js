@@ -1,7 +1,6 @@
 (function () {
     var app = angular.module('usersApp', [
         'ngRoute',
-        'ngCookies',
         'highcharts-ng',
         'ContactSidebarController',
         'UserContentController',
@@ -52,7 +51,7 @@
             async: function (id) {
                 if (!promise) {
                     // $http returns a promise, which has a then function, which also returns a promise
-                    promise = $http.get('/api/contacts/'+ id +'/visits/visit.json').then(function (response) {
+                    promise = $http.get('api/contacts/'+ id +'/visits/visit.json').then(function (response) {
                         // The return value gets picked up by the then in the controller.
                         return response.data;
                     });

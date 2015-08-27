@@ -5,11 +5,11 @@
     "lastname": "Avenati",
     "firstname": "Christian",
     "site": "Shop Online",
-    "creationDate": "2009-09-04T15:50:55+01:00",
+    "creationDate": "2015-09-04T15:50:55+01:00",
     "address": {
       "title": "Home",
-      "line1": "av. Secrete 1",
-      "line2": "av. Secrete 2",
+      "line1": "Golovko st., 4A",
+      "line2": "ap. 56",
       "postcode": "30225",
       "city": "Kiev",
       "country": "Ukraine"
@@ -31,19 +31,24 @@
     "lastname": "White",
     "firstname": "Andrew",
     "site": "Travel",
-    "creationDate": "2009-09-04T15:50:55+01:00",
+    "creationDate": "2015-12-04T15:50:55+01:00",
     "address": {
       "title": "Home",
-      "line1": "av. Street 1",
-      "line2": "av. Street 2",
+      "line1": "Kocubi st., 89",
+      "line2": "ap. 19",
       "postcode": "56525",
       "city": "Lviv",
       "country": "Ukraine"
     },
-    "phoneNumbers": {
-      "title": "Business",
-      "phoneNumber": "5646548"
-    },
+    "phoneNumbers": [
+      {
+        "title": "Home",
+        "phoneNumber": "(067) 123-4567"
+      },{
+        "title": "Business",
+        "phoneNumber": ""
+      }
+    ],
     "email": "wd@gmail.com"
   }
 ]
