@@ -2,23 +2,7 @@
     /* Content panel*/
     var app = angular.module('HomePageController', []);
 
-    app.factory('getUsers', function($http) {
-        var promise;
-        var getUsers = {
-            async: function (id) {
-                if (!promise) {
-                    // $http returns a promise, which has a then function, which also returns a promise
-                    promise = $http.get('api/contacts/users.json').then(function (response) {
-                        // The return value gets picked up by the then in the controller.
-                        return response.data;
-                    });
-                }
-                // Return the promise to the controller
-                return promise;
-            }
-        };
-        return getUsers;
-    });
+
 
     app.directive('homePage', function () {
         return {

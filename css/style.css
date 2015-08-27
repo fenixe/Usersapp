@@ -84,9 +84,9 @@ html, body {
     padding: 0 15px 0 15px ;
 }
 
-.contact-block::after {
+.contact-sidebar::after {
     display: block;
-    margin: -40px 0;
+    margin: -55px 0;
     content: '';
     border: 6px solid transparent;
     border-right: 12px solid #e8eaec;
@@ -110,10 +110,6 @@ html, body {
 
 .custom-label {
     margin-top: -24px;
-}
-
-.form-control {
-
 }
 
 .form-control + .glyphicon {

@@ -10,20 +10,19 @@
       "title": "Home",
       "line1": "av. Secrete 1",
       "line2": "av. Secrete 2",
-      "postcode": 30225,
+      "postcode": "30225",
       "city": "Kiev",
       "country": "Ukraine"
     },
     "phoneNumbers":[
       {
         "title": "Home",
-        "phoneNumber": "30545656554656"
+        "phoneNumber": "(850) 789-5465"
       },{
         "title": "Business",
-        "phoneNumber": "34534556"
+        "phoneNumber": "(005) 456-8589"
       }
-    ]
-    ,
+    ],
     "email": "sd34@gmail.com"
   },
   {
@@ -37,7 +36,7 @@
       "title": "Home",
       "line1": "av. Street 1",
       "line2": "av. Street 2",
-      "postcode": 56525,
+      "postcode": "56525",
       "city": "Lviv",
       "country": "Ukraine"
     },
