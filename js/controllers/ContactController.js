@@ -2,10 +2,13 @@
     /* Contact panel*/
     var app = angular.module('ContactController', []);
 
+    // Directive phone input field
     app.directive('phoneInput', function ($filter, $browser) {
         return {
             require: 'ngModel',
             link: function ($scope, $element, $attrs, ngModelCtrl) {
+
+                // Create listeners object
                 var listener = function () {
                     var value = $element.val().replace(/[^0-9]/g, '');
                     value = $filter('telephone')(value);
@@ -43,6 +46,7 @@
         };
     });
 
+    // Angular filter for phone's field
     app.filter('telephone', function () {
         return function (number) {
             /**
@@ -77,7 +81,7 @@
         }
     });
 
-
+    // Directive for Users`s contact form
     app.directive('contactForm', function () {
         return {
             restrict: 'E',
@@ -94,19 +98,21 @@
                     return user[0];
                 }
 
+                // Get user info by _id. Take data from users.json and filter it by id
                 getUsers.async().then(function (data) {
                     $scope.user = getUserById(data, +$routeParams.id);
                     userFirstName = $scope.user.firstname;
                     userLastName = $scope.user.lastname;
                 });
 
-                $scope.getName = function () {
+                // Return full name for contact sidebar
+                $scope.getFullName = function () {
                     return userFirstName + " " + userLastName;
                 };
 
+                // This send user data if form valid
                 $scope.signUpForm = function () {
-                    console.log($scope.user);
-                    /*$http({
+                    $http({
                         method: 'POST',
                         url: 'api/contacts/' + $routeParams.id,
                         data: $scope.user
@@ -114,9 +120,10 @@
                         alertify.log('User data saved successfully', 'success', 2000);
                     }).error(function (data, status, headers, cfg) {
                         alertify.log('An error occurred when saving data', 'error', 2000);
-                    });*/
+                    });
                 };
             },
+
             controllerAs: 'contactFormCtrl'
         };
     });

@@ -8,31 +8,28 @@
     <!-- linc CSS -->
     <link rel="stylesheet" media="screen" href="css/bootstrap.min.css">
     <link rel="stylesheet" media="screen" href="css/alertify.css">
-
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" media="screen" href="css/angular-csp.css">
     <link rel="stylesheet" media="screen" href="css/style.css">
 
 
     <!-- connect js library -->
-    <script type="text/javascript" src="js/angular/angular.min.js"></script>
-    <script type="text/javascript" src="js/angular/angular-route.min.js"></script>
-    <script type="text/javascript" src="js/angular/alertify.js"></script>
-    <script type="text/javascript" src="js/angular/standalone-framework.js"></script>
-    <script type="text/javascript" src="js/angular/highcharts.js"></script>
-    <script type="text/javascript" src="js/angular/highcharts-ng.js"></script>
+    <script type="text/javascript" src="js/lib/angular.min.js"></script>
+    <script type="text/javascript" src="js/lib/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/lib/alertify.js"></script>
+    <script type="text/javascript" src="js/lib/standalone-framework.js"></script>
+    <script type="text/javascript" src="js/lib/highcharts.js"></script>
+    <script type="text/javascript" src="js/lib/highcharts-ng.js"></script>
 
 
     <!-- connect app files -->
     <script src="app.js"></script>
-    <script src="js/controller/ContactSidebarController.js"></script>
-    <script src="js/controller/UserContentController.js"></script>
-    <script src="js/controller/ContactController.js"></script>
-    <script src="js/controller/UsersTableController.js"></script>
-    <script src="js/controller/VisitsChartController.js"></script>
+    <script src="js/controllers/ContactSidebarController.js"></script>
+    <script src="js/controllers/ContactController.js"></script>
+    <script src="js/controllers/UsersTableController.js"></script>
+    <script src="js/controllers/VisitsChartController.js"></script>
 
 </head>
-
     <!-- Body-->
     <body>
 
@@ -40,7 +37,9 @@
     <!--<header></header>-->
 
         <!--Main Content-->
-        <main ng-view></main>
+        <div class="container-fluid">
+            <main ng-view></main>
+        </div>
 
     <!-- Footer -->
     <!--<footer></footer>-->

@@ -15,10 +15,11 @@ app.directive('usersTable', function () {
 
             $scope.filter = {};
 
-            $scope.sortColumn = $rootScope.sortColumn; // значение сортировки по умолчанию
-            $scope.sortReverse = $rootScope.sortReverse || false;  // обратная сортировка
-            $scope.searchSite = $rootScope.searchSite;     // значение поиска по умолчанию*/
+            $scope.sortColumn = $rootScope.sortColumn;             // value for sort column
+            $scope.sortReverse = $rootScope.sortReverse || false;  // value for sort ASC or DESC
+            $scope.searchSite = $rootScope.searchSite;             // value for sorting by site name
 
+            // Get array with unique site name
             $scope.getSites = function () {
                 return ($scope.users || []).map(function (w) {
                     return w.site;
@@ -27,6 +28,7 @@ app.directive('usersTable', function () {
                 });
             };
 
+            // Controller for filter by site name
             $scope.filterBySite = function (users) {
                 return $scope.filter[users.site] || noFilter($scope.filter);
             };
@@ -40,6 +42,7 @@ app.directive('usersTable', function () {
                 return true;
             }
 
+            // Sort controller for table
             $scope.sortBy = function (field) {
                 if ($scope.sortColumn == field) {
                     $rootScope.sortReverse = !$rootScope.sortReverse;
@@ -49,38 +52,12 @@ app.directive('usersTable', function () {
                 }
             };
 
+            // Controller for redirect on users contact content
             $scope.showUser = function (id) {
                 var path = $location.path();
                 $location.path(path + '/' + id);
             };
 
-            /* this.tab = 'today';
-
-
-             var curUser = localStorageService.get(this.tab);
-             $scope.curUser = curUser || [];
-
-             this.changeTab = function (nameTab) {
-             var ls =  localStorageService.get(nameTab);
-             $scope.curUser.horoscope = ls.horoscope;
-             $scope.curUser.zodiac = ls.zodiac;
-             this.tab = nameTab;
-             };
-             this.isLoginUser = function(){
-             return $scope.curUser.zodiac !== $rootScope.loginUser.zodiac
-             };
-             this.setLoginUser = function(){
-             ContentService.getHoroscope($rootScope.loginUser.zodiac, HOROSCOPES).then(function (res) {
-             angular.forEach(res.data, function (value, key) {
-             localStorageService.set(value.date, value);
-             });
-             $scope.curUser = $rootScope.loginUser;
-             $scope.contCtrl.changeTab($scope.contCtrl.tab);
-             });
-             };
-             this.isSet = function (checkTab) {
-             return this.tab === checkTab;
-             };*/
         },
         controllerAs: 'usersTablesCtrl'
     };

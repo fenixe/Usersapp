@@ -6,14 +6,36 @@
         return {
             restrict: 'E',
             templateUrl: './view/visits-chart.html',
-            controller: function ($scope, $rootScope, getUsersCharts, $routeParams) {
+            controller: function ($scope, $rootScope, getUsersCharts, $routeParams, $filter) {
+
+                // Get data for user`s charts
                 getUsersCharts.async($routeParams.id).then(function (data) {
-                    setChartOptions(data)
+                    setChartOptions(data);
                 });
 
-                function setChartOptions(data) {
+                // Generate Highchart panel from user`s chart data and set it in element by id="visitsChart"
+                function setChartOptions(userChartData) {
+                    var offtarget = userChartData.views.offtarget,
+                        online = userChartData.views.online,
+                        offline = userChartData.views.offline,
+                        xAxis = [],
+                        values = [];
 
-                    $scope.chartOptions = {
+                    /** I am not sure that offtarget data come from sever in this format, but it give possibility
+                        for build solid chart from server data
+                     */
+                    for (var i = 0; i < offtarget.length; i++) {
+                        var date = $filter('date')(offtarget[i].date, "d MMM");
+                        var value = +offtarget[i].value;
+
+                        xAxis.push(date);
+                        values.push(value);
+                    }
+
+                    var char = new Highcharts.Chart({
+                        chart: {
+                            renderTo: "visitsChart"
+                        },
                         title: {
                             text: 'User visits'
                         },
@@ -30,24 +52,22 @@
                             }
                         },
                         xAxis: {
-                            categories: ['1 Jan', '2 Jan', '3 Jan', '4 Jan', '5 Jan']
+                            categories: xAxis
                         },
-                        options: {
-                            labels: {
-                                items: [{
-                                    html: 'Online VS Offline',
-                                    style: {
-                                        left: '105px',
-                                        top: '18px',
-                                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
-                                    }
-                                }]
-                            }
+                        labels: {
+                            items: [{
+                                html: 'Online VS Offline',
+                                style: {
+                                    left: '50px',
+                                    top: '18px',
+                                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                                }
+                            }]
                         },
                         series: [{
                             type: 'spline',
                             name: "Pages per visits",
-                            data: [2.9, 30, 10.4, 32.2, 0],
+                            data: values,
                             marker: {
                                 lineWidth: 2,
                                 lineColor: Highcharts.getOptions().colors[3], // Graphick`s picks
@@ -58,11 +78,11 @@
                             name: 'Online VS Offline',
                             data: [{
                                 name: 'Online',
-                                y: data.views.online,
+                                y: online,
                                 color: Highcharts.getOptions().colors[0] // Online's color
                             }, {
                                 name: 'Offline',
-                                y: data.views.offline,
+                                y: offline,
                                 color: Highcharts.getOptions().colors[1] // Offline's color
                             }],
                             center: [80, 80],
@@ -72,7 +92,8 @@
                                 enabled: false
                             }
                         }]
-                    };
+                    });
+                    return char;
                 }
             },
             controllerAs: 'visitsChartCtrl'

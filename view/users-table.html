@@ -25,6 +25,7 @@
                 <th>
                     <a href="#" ng-click="sortBy('creationDate');">
                         Creation Date
+                        <span ng-show="sortColumn !== 'creationDate'" class="fa fa-sort"></span>
                         <span ng-show="sortColumn == 'creationDate' && !sortReverse" class="fa fa-caret-down"></span>
                         <span ng-show="sortColumn == 'creationDate' && sortReverse" class="fa fa-caret-up"></span>
                     </a>
@@ -32,6 +33,7 @@
                 <th>
                     <a href="#" ng-click="sortBy('site');">
                         Site
+                        <span ng-show="sortColumn !== 'site'" class="fa fa-sort"></span>
                         <span ng-show="sortColumn == 'site' && !sortReverse" class="fa fa-caret-down"></span>
                         <span ng-show="sortColumn == 'site' && sortReverse" class="fa fa-caret-up"></span>
                     </a>
@@ -39,6 +41,7 @@
                 <th>
                     <a href="#" ng-click="sortBy('lastname')">
                         Last Name
+                        <span ng-show="sortColumn !== 'lastname'" class="fa fa-sort"></span>
                         <span ng-show="sortColumn == 'lastname' && !sortReverse" class="fa fa-caret-down"></span>
                         <span ng-show="sortColumn == 'lastname' && sortReverse" class="fa fa-caret-up"></span>
                     </a>
@@ -46,15 +49,16 @@
                 <th>
                     <a href="#" ng-click="sortBy('firstname')">
                         First Name
+                        <span ng-show="sortColumn !== 'firstname'" class="fa fa-sort"></span>
                         <span ng-show="sortColumn == 'firstname' && !sortReverse" class="fa fa-caret-down"></span>
                         <span ng-show="sortColumn == 'firstname' && sortReverse" class="fa fa-caret-up"></span>
                     </a>
                 </th>
                 <th>
-                    <a href="#"> Email </a>
+                    <a> Email </a>
                 </th>
                 <th>
-                    <a href="#"> Phone Number </a>
+                    <a> Phone Number </a>
                 </th>
             </tr>
             </thead>
@@ -69,7 +73,7 @@
                 <td>{{ user.lastname }}</td>
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.email }}</td>
-                <td>{{ user.phoneNumbers.phoneNumber }}</td>
+                <td>{{ user.phoneNumbers[0].phoneNumber }}</td>
             </tr>
             </tbody>
         </table>

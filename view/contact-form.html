@@ -1,11 +1,11 @@
 <!--  User's Contact Form -->
-<div class="col-md-5 contact-form">
+<div class="col-xs-9 col-sm-5 col-md-5 contact-form">
     <form class="form-horizontal" name="userForm" ng-submit="userForm.$valid && signUpForm()">
 
         <div class="form-group">
             <label class="col-sm-3 col-md-3 control-label">Civility</label>
 
-            <div class="col-md-3">
+            <div class="col-sm-6 col-md-3">
                 <select class="form-control" ng-model="user.civilityFlag">
                     <option value="0">Select...</option>
                     <option value="1">Mr</option>
@@ -23,7 +23,7 @@
             <div class="col-sm-6 col-md-6">
                 <input type="text" ng-model="user.firstname" ng-minlength=3 ng-maxlength=20 class="form-control"
                        name="firstName" required>
-                <span ng-show="userForm.firstName.$error.maxlength">Your First Name is too long</span>
+                <span ng-show="userForm.firstName.$error.maxlength">Your first name is too long</span>
             </div>
         </div>
 
@@ -33,7 +33,7 @@
             <div class="col-sm-6 col-md-6">
                 <input type="text" ng-model="user.lastname" ng-minlength=3 ng-maxlength=20 class="form-control"
                        name="lastName" required>
-                <span ng-show="userForm.lastName.$error.maxlength">Your Last Name is too long</span>
+                <span ng-show="userForm.lastName.$error.maxlength">Your last name is too long</span>
             </div>
         </div>
 
@@ -82,7 +82,8 @@
             </div>
 
             <div class="col-sm-3 col-md-3 city">
-                <input type="text" ng-model="user.address.city" class="form-control" name="city" placeholder="City">
+                <input type="text" ng-model="user.address.city" class="form-control" name="city" ng-maxlength=20 placeholder="City">
+                <span ng-show="userForm.city.$error.maxlength">Your city name is too long</span>
             </div>
 
         </div>
@@ -91,8 +92,9 @@
             <label class="col-sm-3 col-md-3"></label>
 
             <div class="col-sm-6 col-md-6">
-                <input type="text" ng-model="user.address.country" class="form-control" name="country"
+                <input type="text" ng-model="user.address.country" class="form-control" ng-maxlength=30 name="country"
                        placeholder="Country">
+                <span ng-show="userForm.country.$error.maxlength">Your city name is too long</span>
             </div>
         </div>
 
