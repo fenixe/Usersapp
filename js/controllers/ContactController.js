@@ -114,7 +114,7 @@
                 $scope.signUpForm = function () {
                     $http({
                         method: 'POST',
-                        url: 'api/contacts/' + $routeParams.id,
+                        url: './api/contacts/' + $routeParams.id,
                         data: $scope.user
                     }).success(function (data, status, headers, cfg) {
                         alertify.log('User data saved successfully', 'success', 2000);

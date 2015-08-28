@@ -1,4 +1,5 @@
 (function () {
+
     var app = angular.module('usersApp', [
         'ngRoute',
         'highcharts-ng',
@@ -35,7 +36,7 @@
             async: function () {
                 if (!promise) {
                     // $http returns a promise, which has a then function, which also returns a promise
-                    promise = $http.get('api/contacts/users.json').then(function (response) {
+                    promise = $http.get('./api/contacts/users.json').then(function (response) {
                         // The return value gets picked up by the then in the controller.
                         return response.data;
                     });
@@ -51,7 +52,7 @@
         var promise;
         return {
             async: function (id) {
-                promise = $http.get('api/contacts/'+ id +'/visits/visit.json').then(function (response) {
+                promise = $http.get('./api/contacts/'+ id +'/visits/visit.json').then(function (response) {
                     // The return value gets picked up by the then in the controller.
                     return response.data;
                 });
@@ -89,5 +90,3 @@
         };
     });
 })();
-
-
